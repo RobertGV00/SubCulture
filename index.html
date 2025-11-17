@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Football Subculture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Packers Color Variables */
+        :root {
+            --dark-green: #203731;
+            --gold-yellow: #FFB612;
+            --light-cream: #F7F4EA;
+            --off-black: #1E1E1E;
+            --soft-white: #FFFFFF;
+            --grey-steel: #8A8D8F;
+            --dark-gold: #C69214;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--off-black);
+            background-color: var(--soft-white);
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-green);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold-yellow);
+            margin: 10px auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold-yellow);
+            color: var(--dark-green);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--dark-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-green);
+            color: var(--soft-white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold-yellow);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--soft-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold-yellow);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--soft-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(32, 55, 49, 0.85), rgba(32, 55, 49, 0.85)), 
+                        url('pictures/Lambeu.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--soft-white);
+            padding: 8rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        /* Page Navigation */
+        .page-nav {
+            background: var(--light-cream);
+            padding: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .page-nav-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .page-nav-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--soft-white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--grey-steel);
+        }
+        
+        .page-nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--gold-yellow);
+        }
+        
+        .page-nav-item i {
+            font-size: 2rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+        
+        .page-nav-item h3 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Content Sections */
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: var(--soft-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 1px solid var(--light-cream);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+        
+        /* Interview Sections */
+        .interview {
+            background: var(--soft-white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--gold-yellow);
+        }
+        
+        .interview-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .interview-icon {
+            background: var(--dark-green);
+            color: var(--soft-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        
+        .quote {
+            font-style: italic;
+            border-left: 4px solid var(--gold-yellow);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: var(--off-black);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gold-yellow);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            padding: 1.5rem;
+            position: relative;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+        
+        .timeline-content {
+            background: var(--soft-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--light-cream);
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--dark-green);
+            border-radius: 50%;
+            top: 1.5rem;
+        }
+        
+        .timeline-item:nth-child(odd):before {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even):before {
+            left: -10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: var(--soft-white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-green);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:before {
+                left: 20px;
+            }
+        }
+        
+        /* Alternating section backgrounds */
+        .bg-light {
+            background-color: var(--light-cream);
+        }
+        
+        .highlight-box {
+            background: var(--light-cream);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold-yellow);
+        }
+        
+        .quote-large {
+            font-size: 1.3rem;
+            font-style: italic;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--light-cream);
+            border-radius: 8px;
+            color: var(--dark-green);
+            font-weight: 500;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: var(--grey-steel);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Football Culture</div>
+            <nav>
+                <button class="mobile-menu-btn">☰</button>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#history">History</a>
+                    <a href="#community">Community</a>
+                    <a href="#experience">My Experience</a>
+                    <a href="#player-interview">Player Interview</a>
+                    <a href="#fan-interview">Fan Interview</a>
+                    <a href="#analysis">Cultural Analysis</a>
+                    <a href="#future">Future</a>
+                    <a href="#works-cited">Works Cited</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>American Football Sub-Culture</h1>
+            <p>Tradition, Community & Identity in the United States</p>
+            <p>American football is more than a competitive sport — it is a cultural identity built from history, family tradition, community belonging, and national pride.</p>
+            <a href="#history" class="btn">Explore the Culture</a>
+        </div>
+    </section>
+
+    <!-- Page Navigation -->
+    <section class="page-nav">
+        <div class="container page-nav-container">
+            <div class="page-nav-item">
+                <i class="fas fa-history"></i>
+                <h3>History & Origins</h3>
+                <p>From Ivy League to the NFL</p>
+            </div>
+            <div class="page-nav-item">
+                <i class="fas fa-users"></i>
+                <h3>Community & Rituals</h3>
+                <p>Traditions that unite</p>
+            </div>
+            <div class="page-nav-item">
+                <i class="fas fa-user"></i>
+                <h3>My Experience</h3>
+                <p>A first-time perspective</p>
+            </div>
+            <div class="page-nav-item">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>Interviews</h3>
+                <p>Player and fan perspectives</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="quote-large">
+                "Football isn't just a game — it's a way people connect, identify, and create tradition."
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history">
+        <div class="container">
+            <h2 class="section-title">History & Origins</h2>
+            <div class="section-content">
+                <p>American football has roots in post-Civil War culture, where young men needed a new arena to prove strength, discipline, and toughness. According to the Radiolab episode "American Football," early games at Harvard and Yale were brutal, chaotic, and often dangerous — yet celebrated as symbols of masculinity.</p>
+                
+                <div class="highlight-box">
+                    <h3>Early Ivy League Football</h3>
+                    <ul>
+                        <li>Eye gouging</li>
+                        <li>Broken bones</li>
+                        <li>No helmets</li>
+                        <li>Violent scrimmages</li>
+                    </ul>
+                    <div class="quote">
+                        "Football became the place where young men proved toughness when the Civil War was over." — Radiolab (2015)
+                    </div>
+                </div>
+                
+                <h3>Carlisle Indian School</h3>
+                <p>Native American players used football as a tool to challenge racist stereotypes. Despite a system built to erase Native culture, Carlisle players earned national respect — redefining what Americans believed about identity and equality.</p>
+                
+                <h3>What Football Represented</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Discipline</h4>
+                            <p>Rigorous training and commitment</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Honor</h4>
+                            <p>Playing with integrity and respect</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Community Unity</h4>
+                            <p>Bringing people together</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>National Pride</h4>
+                            <p>Representing American values</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Football wasn't only a game — it became a defining part of American identity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Community & Rituals</h2>
+            <div class="section-content">
+                <p>According to The Atlantic ("How Football Became America's Religion"), the sport functions like a modern form of worship:</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Weekly Rituals</h3>
+                            <p>Sunday games as sacred gatherings</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Family Gatherings</h3>
+                            <p>Multi-generational participation</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Tailgating</h3>
+                            <p>Pre-game celebrations and community building</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Shared Symbols</h3>
+                            <p>Jerseys, chants, and team colors</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Family-Based Tradition</h3>
+                <p>Football is passed down like heritage:</p>
+                <ul>
+                    <li>Watching games together</li>
+                    <li>Wearing team gear</li>
+                    <li>Teaching kids the rules</li>
+                    <li>Celebrating wins like holidays</li>
+                </ul>
+                
+                <div class="quote">
+                    "For many families, Sunday football has become the new church." — The Atlantic
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">My Experience</h2>
+            <div class="section-content">
+                <p>My first football game in the United States changed my view of the sport completely. Before the game, we met at my friend's house to warm up and get ready. His dad drove us to the stadium, and from the moment we stepped out of the car, I could feel the energy.</p>
+                
+                <p>Inside, everyone was friendly. People joined our photos, offered to take pictures for us, and talked to us even if we were strangers. When they heard it was my first-ever American football game — and that I wasn't from the U.S. — they welcomed me immediately.</p>
+                
+                <p>Even though the team played badly and lost, everyone still laughed, cheered, and enjoyed the night. I didn't feel like an outsider. I felt like part of the community.</p>
+                
+                <div class="quote">
+                    "It felt like everyone was connected, even people who didn't know each other."
+                </div>
+                
+                <p>This experience helped me understand why football is such a strong sub-culture. It doesn't matter where you come from — once you're in the stadium, you belong.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Interview Section -->
+    <section id="player-interview" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Interview: Player Perspective</h2>
+            <div class="interview">
+                <div class="interview-header">
+                    <div class="interview-icon">MJ</div>
+                    <h3>Interview with Former Football Player</h3>
+                </div>
+                
+                <p><strong>1. How he got into football:</strong></p>
+                <div class="quote">
+                    "My dad played in college and my grandpa played in high school, so I basically inherited football."
+                </div>
+                
+                <p><strong>2. Starting young:</strong></p>
+                <div class="quote">
+                    "I started playing organized football at around seven or eight. Third grade was when I started tackle — which today is rare because of concussion concerns."
+                </div>
+                
+                <p><strong>3. Importance of football in the U.S.:</strong></p>
+                <div class="quote">
+                    "It started here. People want a team to cheer for. Packers fans are some of the most die-hard fans in the country."
+                </div>
+                
+                <p><strong>4. Community belonging:</strong></p>
+                <div class="quote">
+                    "You can see someone wearing Packers gear on the street and start a conversation immediately."
+                </div>
+                
+                <p><strong>5. Values learned:</strong></p>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Leadership</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Overcoming adversity</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Staying active</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Responsibility</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h4>Teamwork</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>6. Stereotypes:</strong></p>
+                <div class="quote">
+                    "A lot of people think players are dumb, but that's not true. There are NFL guys who scored a 36 on their ACT or went to Harvard."
+                </div>
+                
+                <p><strong>7. Packers uniqueness:</strong></p>
+                <div class="quote">
+                    "They're fan-owned. Fans literally buy shares and attend shareholder meetings."
+                </div>
+                
+                <p><strong>8. Personal impact:</strong></p>
+                <div class="quote">
+                    "I loved football, but I chose track and field. And concussions are a real concern."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Interview Section -->
+    <section id="fan-interview">
+        <div class="container">
+            <h2 class="section-title">Interview: Fan Perspective</h2>
+            <div class="interview">
+                <div class="interview-header">
+                    <div class="interview-icon">SR</div>
+                    <h3>Interview with a Lifelong Football Fan</h3>
+                </div>
+                
+                <p><strong>1. Growing up in a football family:</strong></p>
+                <div class="quote">
+                    "I was born into it. My dad played, my grandpa played — football was always there."
+                </div>
+                
+                <p><strong>2. Early memories:</strong></p>
+                <div class="quote">
+                    "Watching Packers and Badgers games with my family since I was a kid."
+                </div>
+                
+                <p><strong>3. Identity:</strong></p>
+                <div class="quote">
+                    "In Wisconsin, football is part of who you are. It defines growing up here."
+                </div>
+                
+                <p><strong>4. Belonging:</strong></p>
+                <div class="quote">
+                    "When you're a fan, you instantly connect with others. It doesn't matter if you know them or not."
+                </div>
+                
+                <p><strong>5. Traditions:</strong></p>
+                <ul>
+                    <li>Game-days together</li>
+                    <li>Jerseys</li>
+                    <li>Asking each other about the team constantly</li>
+                    <li>Talking about the Packers like they're family</li>
+                </ul>
+                
+                <div class="quote">
+                    "Here, football isn't a hobby — it's part of life."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Analysis Section -->
+    <section id="analysis" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Cultural Analysis</h2>
+            <div class="section-content">
+                <p>American football meets all the criteria to be considered a sub-culture:</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Demographics</h3>
+                            <p>Players, fans, families, alumni, regions like Wisconsin where football is identity.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Rituals</h3>
+                            <p>Sundays, tailgating, jerseys, chants, family gatherings.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Values</h3>
+                            <p>Leadership, resilience, teamwork, national pride.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Beliefs</h3>
+                            <p>Football as identity, tradition, heritage.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Kinship & Tribe</h3>
+                <p>Football matches the definition of a "tribe":</p>
+                <ul>
+                    <li>Unity</li>
+                    <li>Shared identity</li>
+                    <li>Collective values</li>
+                    <li>Hierarchy (players, coaches, fans)</li>
+                    <li>Ritualized gatherings</li>
+                </ul>
+                
+                <h3>Outsider / Insider</h3>
+                <p>Once you join (even as a foreigner), you're immediately welcomed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future">
+        <div class="container">
+            <h2 class="section-title">Future of Football</h2>
+            <div class="section-content">
+                <p>Where is football going?</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Growing Global Interest</h3>
+                            <p>NFL exploring teams outside the U.S.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Safety Concerns</h3>
+                            <p>Fewer kids playing due to concussion risks.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Rules Changing</h3>
+                            <p>Adapting to make the game safer.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Strong Fan Culture</h3>
+                            <p>Despite changes, the sub-culture remains powerful.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 2rem;">Football evolves, but the sub-culture stays powerful.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Cited Section -->
+    <section id="works-cited" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Works Cited</h2>
+            <div class="section-content">
+                <div style="background: var(--soft-white); padding: 2rem; border-radius: 8px;">
+                    <ul style="list-style-type: none;">
+                        <li style="margin-bottom: 1rem;">Abumrad, Jad, and Robert Krulwich. "American Football." <em>Radiolab</em>, WNYC Studios, 8 Jan. 2015.</li>
+                        <li style="margin-bottom: 1rem;">Thompson, Derek. "How Football Became America's Religion." <em>The Atlantic</em>, 12 Jan. 2014.</li>
+                        <li style="margin-bottom: 1rem;">NFL Films. "Football Is Family." <em>NFL Films Presents</em>, NFL Network, 2016.</li>
+                        <li style="margin-bottom: 1rem;">Player Interview. Personal interview conducted by Robert George, 15 Nov. 2025.</li>
+                        <li style="margin-bottom: 1rem;">Fan Interview. Personal interview conducted by Robert George, 16 Nov. 2025.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <h3>American Football: More Than a Game</h3>
+            <p>Exploring the cultural significance of football in American society</p>
+            <p style="margin-top: 2rem;">&copy; 2025 Football Culture Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
