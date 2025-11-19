@@ -104,15 +104,20 @@
         
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2.5rem;              /* más espacio entre enlaces */
+            align-items: center;
+            margin-left: 80px;
         }
         
-        .nav-links a {
-            color: var(--soft-white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+       .nav-links a {
+    color: var(--soft-white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;       /* un pelín más pequeño para que no se partan */
+    white-space: nowrap;      /* evita que se rompa en dos líneas */
+    position: relative;
+    letter-spacing: 0.03em;   /* un poco más “menu” */
+}
         
         .nav-links a:hover {
             color: var(--gold-yellow);
