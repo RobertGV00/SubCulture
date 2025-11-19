@@ -100,6 +100,7 @@
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--gold-yellow);
+            white-space: nowrap;      /* evita que se rompa en dos líneas */
         }
         
         .nav-links {
@@ -109,15 +110,15 @@
             margin-left: 80px;
         }
         
-       .nav-links a {
-    color: var(--soft-white);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;       /* un pelín más pequeño para que no se partan */
-    white-space: nowrap;      /* evita que se rompa en dos líneas */
-    position: relative;
-    letter-spacing: 0.03em;   /* un poco más “menu” */
-}
+        .nav-links a {
+            color: var(--soft-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;       /* un pelín más pequeño para que no se partan */
+            white-space: nowrap;      /* evita que se rompa en dos líneas */
+            position: relative;
+            letter-spacing: 0.03em;   /* un poco más “menu” */
+    }
         
         .nav-links a:hover {
             color: var(--gold-yellow);
