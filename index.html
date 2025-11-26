@@ -6,7 +6,6 @@
     <title>American Football Subculture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://robertgv00.github.io/SubCulture/pictures/favicon.png">
-
     <style>
         /* Packers Color Variables */
         :root {
@@ -100,25 +99,19 @@
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--gold-yellow);
-            white-space: nowrap;      /* evita que se rompa en dos líneas */
         }
         
         .nav-links {
             display: flex;
-            gap: 2.5rem;              /* más espacio entre enlaces */
-            align-items: center;
-            margin-left: 80px;
+            gap: 1.5rem;
         }
         
         .nav-links a {
             color: var(--soft-white);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;       /* un pelín más pequeño para que no se partan */
-            white-space: nowrap;      /* evita que se rompa en dos líneas */
-            position: relative;
-            letter-spacing: 0.03em;   /* un poco más “menu” */
-    }
+            transition: color 0.3s;
+        }
         
         .nav-links a:hover {
             color: var(--gold-yellow);
@@ -432,6 +425,49 @@
             color: var(--grey-steel);
             font-size: 0.9rem;
         }
+
+        /* Secciones con imagen izquierda/derecha */
+        .section-with-image {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-with-image img {
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-with-image.right {
+            flex-direction: row-reverse;
+        }
+
+        .section-with-image > div {
+            flex: 1;
+        }
+
+        /* Imagen vertical arriba de las entrevistas */
+        .interview-image-top {
+            display: block;
+            max-width: 420px;
+            width: 100%;
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+            .section-with-image {
+                flex-direction: column !important;
+                text-align: left;
+            }
+
+            .section-with-image img {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -460,8 +496,8 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>American Football Sub-Culture</h1>
-            <p>Tradition, Community & Identity in the United States</p>
-            <p>American football is more than a competitive sport — it is a cultural identity built from history, family tradition, community belonging, and national pride.</p>
+            <p>Tradition, Community &amp; Identity in the United States</p>
+            <p>American football is more than a competitive sport, it is a cultural identity built from history, family tradition, community belonging, and national pride.</p>
             <a href="#history" class="btn">Explore the Culture</a>
         </div>
     </section>
@@ -471,12 +507,12 @@
         <div class="container page-nav-container">
             <div class="page-nav-item">
                 <i class="fas fa-history"></i>
-                <h3>History & Origins</h3>
+                <h3>History &amp; Origins</h3>
                 <p>From Ivy League to the NFL</p>
             </div>
             <div class="page-nav-item">
                 <i class="fas fa-users"></i>
-                <h3>Community & Rituals</h3>
+                <h3>Community &amp; Rituals</h3>
                 <p>Traditions that unite</p>
             </div>
             <div class="page-nav-item">
@@ -496,7 +532,7 @@
     <section class="bg-light">
         <div class="container">
             <div class="quote-large">
-                "Football isn't just a game — it's a way people connect, identify, and create tradition."
+                "Football isn't just a game, it is a way people connect, identify, and create tradition."
             </div>
         </div>
     </section>
@@ -504,9 +540,19 @@
     <!-- History Section -->
     <section id="history">
         <div class="container">
-            <h2 class="section-title">History & Origins</h2>
+            <h2 class="section-title">History &amp; Origins</h2>
             <div class="section-content">
-                <p>American football has roots in post-Civil War culture, where young men needed a new arena to prove strength, discipline, and toughness. According to the Radiolab episode "American Football," early games at Harvard and Yale were brutal, chaotic, and often dangerous — yet celebrated as symbols of masculinity.</p>
+
+                <!-- Imagen izquierda -->
+                <div class="section-with-image">
+                    <img src="pictures/history_ivy_league.jpg" alt="Early Ivy League football game between Harvard and Yale at Hamilton Park">
+                    <div>
+                        <p>American football has roots in post-Civil War culture, where young men needed a new arena to prove strength, discipline, and toughness. According to the Radiolab episode "American Football," early games at Harvard and Yale were brutal, chaotic, and often dangerous, yet celebrated as symbols of masculinity.</p>
+                        <p class="image-caption">
+                            The first Harvard–Yale football game at Hamilton Park on 13 November 1875. Photograph by Oscar White/Corbis, via <em>The Guardian</em>.
+                        </p>
+                    </div>
+                </div>
                 
                 <div class="highlight-box">
                     <h3>Early Ivy League Football</h3>
@@ -521,8 +567,17 @@
                     </div>
                 </div>
                 
-                <h3>Carlisle Indian School</h3>
-                <p>Native American players used football as a tool to challenge racist stereotypes. Despite a system built to erase Native culture, Carlisle players earned national respect — redefining what Americans believed about identity and equality.</p>
+                <!-- Imagen derecha -->
+                <div class="section-with-image right">
+                    <img src="pictures/carlisle_team.jpg" alt="Carlisle Indian School football team in 1912">
+                    <div>
+                        <h3>Carlisle Indian School</h3>
+                        <p>Native American players used football as a tool to challenge racist stereotypes. Despite a system built to erase Native culture, Carlisle players earned national respect, redefining what Americans believed about identity and equality.</p>
+                        <p class="image-caption">
+                            Carlisle Indian School football team in 1912, a Native American squad that challenged racist stereotypes. Historical photo via Wikipedia.
+                        </p>
+                    </div>
+                </div>
                 
                 <h3>What Football Represented</h3>
                 <div class="grid">
@@ -552,7 +607,7 @@
                     </div>
                 </div>
                 
-                <p>Football wasn't only a game — it became a defining part of American identity.</p>
+                <p>Football wasn't only a game, it became a defining part of American identity.</p>
             </div>
         </div>
     </section>
@@ -560,9 +615,19 @@
     <!-- Community Section -->
     <section id="community" class="bg-light">
         <div class="container">
-            <h2 class="section-title">Community & Rituals</h2>
+            <h2 class="section-title">Community &amp; Rituals</h2>
             <div class="section-content">
-                <p>According to The Atlantic ("How Football Became America's Religion"), the sport functions like a modern form of worship:</p>
+
+                <!-- Imagen derecha -->
+                <div class="section-with-image right">
+                    <img src="pictures/tailgating_lambeau.jpg" alt="Fans tailgating outside Lambeau Field before a game">
+                    <div>
+                        <p>According to The Atlantic ("How Football Became America's Religion"), the sport functions like a modern form of worship, a weekly ritual that structures time, identity, and community. Stadiums, living rooms, and parking lots turn into sacred spaces where people gather to share emotion and tradition.</p>
+                        <p class="image-caption">
+                            Tailgating outside Lambeau Field, from a Discover Green Bay article published on 23 September 2025 by Sophie Bebeau.
+                        </p>
+                    </div>
+                </div>
                 
                 <div class="grid">
                     <div class="card">
@@ -591,18 +656,27 @@
                     </div>
                 </div>
                 
-                <h3>Family-Based Tradition</h3>
-                <p>Football is passed down like heritage:</p>
-                <ul>
-                    <li>Watching games together</li>
-                    <li>Wearing team gear</li>
-                    <li>Teaching kids the rules</li>
-                    <li>Celebrating wins like holidays</li>
-                </ul>
-                
-                <div class="quote">
-                    "For many families, Sunday football has become the new church." — The Atlantic
+                <!-- Imagen izquierda -->
+                <div class="section-with-image">
+                    <img src="pictures/family_game_day.jpg" alt="Family watching a football game together at home">
+                    <div>
+                        <h3>Family-Based Tradition</h3>
+                        <p>Football is passed down like heritage:</p>
+                        <ul>
+                            <li>Watching games together</li>
+                            <li>Wearing team gear</li>
+                            <li>Teaching kids the rules</li>
+                            <li>Celebrating wins like holidays</li>
+                        </ul>
+                        <div class="quote">
+                            "For many families, Sunday football has become the new church." — The Atlantic
+                        </div>
+                        <p class="image-caption">
+                            A family gathered around the TV on game day, showing how football becomes part of everyday home life.
+                        </p>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -612,9 +686,18 @@
         <div class="container">
             <h2 class="section-title">My Experience</h2>
             <div class="section-content">
-                <p>My first football game in the United States changed my view of the sport completely. Before the game, we met at my friend's house to warm up and get ready. His dad drove us to the stadium, and from the moment we stepped out of the car, I could feel the energy.</p>
-                
-                <p>Inside, everyone was friendly. People joined our photos, offered to take pictures for us, and talked to us even if we were strangers. When they heard it was my first-ever American football game — and that I wasn't from the U.S. — they welcomed me immediately.</p>
+
+                <!-- Imagen izquierda -->
+                <div class="section-with-image">
+                    <img src="pictures/first_game_night.jpg" alt="Night football game with crowd under stadium lights">
+                    <div>
+                        <p>My first football game in the United States changed my view of the sport completely. Before the game, we met at my friend's house to warm up and get ready. His dad drove us to the stadium, and from the moment we stepped out of the car, I could feel the energy.</p>
+                        <p>Inside, everyone was friendly. People joined our photos, offered to take pictures for us, and talked to us even if we were strangers. When they heard it was my first-ever American football game, and that I wasn't from the U.S., they welcomed me immediately.</p>
+                        <p class="image-caption">
+                            My first live football game under the stadium lights in Green Bay. Photo by Robert George (2025).
+                        </p>
+                    </div>
+                </div>
                 
                 <p>Even though the team played badly and lost, everyone still laughed, cheered, and enjoyed the night. I didn't feel like an outsider. I felt like part of the community.</p>
                 
@@ -622,129 +705,165 @@
                     "It felt like everyone was connected, even people who didn't know each other."
                 </div>
                 
-                <p>This experience helped me understand why football is such a strong sub-culture. It doesn't matter where you come from — once you're in the stadium, you belong.</p>
+                <p>This experience helped me understand why football is such a strong sub-culture. It doesn't matter where you come from, once you're in the stadium, you belong.</p>
             </div>
         </div>
     </section>
 
-    <!-- Player Interview Section -->
+    <!-- Player Interview Section (COLLEGE PLAYER PERSPECTIVE) -->
     <section id="player-interview" class="bg-light">
         <div class="container">
-            <h2 class="section-title">Interview: Player Perspective</h2>
+            <h2 class="section-title">Interview: College Player Perspective</h2>
+
+            <img src="pictures/player_sideline.jpg"
+                 alt="Miami Dolphins wide receiver Tyreek Hill running with the ball"
+                 class="interview-image-top">
+
+            <p class="image-caption">
+                Miami Dolphins wide receiver Tyreek Hill (10) runs with the ball against the Tennessee Titans at Hard Rock Stadium in Miami Gardens, Florida, on Sept. 30, 2024. Photo by Jasen Vinlove, via Fox News.
+            </p>
+
+            <div class="interview">
+                <div class="interview-header">
+                    <div class="interview-icon">CP</div>
+                    <h3>Interview with a College-Age Player</h3>
+                </div>
+                
+                <p><strong>1. What first got you interested in football, and what made you want to keep playing?</strong></p>
+                <div class="quote">
+                    "I was first interested in football because of my older brothers, who were playing. Then I started to like it and always wanted to play in the NFL."
+                </div>
+
+                <p><strong>2. How old were you when you started playing, and who influenced you the most at that time?</strong></p>
+                <div class="quote">
+                    "I was around 10 years old when I started playing tackle football, but I was always playing in the yard growing up. I was influenced most by my brothers and my dad."
+                </div>
+
+                <p><strong>3. Are there any football-related traditions you or your family have before or after games?</strong></p>
+                <div class="quote">
+                    "When I was younger, we would always play catch in the yard during halftime of the Packers games. Now after my games, we always go out to eat."
+                </div>
+
+                <p><strong>4. In your opinion, why is football such a big deal in the U.S.?</strong></p>
+                <div class="quote">
+                    "I think it is a great team sport that makes people want to watch it and be a part of it."
+                </div>
+
+                <p><strong>5. How does playing football make you feel part of a community or team?</strong></p>
+                <div class="quote">
+                    "A football team is like its own tight-knit community. This builds good relationships; most of my close friends have all been on the football team."
+                </div>
+
+                <p><strong>6. What life lessons or values do you think football teaches players?</strong></p>
+                <div class="quote">
+                    "It teaches you how to work with other people. You need to work hard to get to where you want to be. You have to be able to trust others that you work with."
+                </div>
+
+                <p><strong>7. There are many stereotypes about football players. Do you think any of them are true or unfair?</strong></p>
+                <div class="quote">
+                    "One stereotype is that football players are dumb. I feel like this can be true, but just to be able to play the game you have to be fairly smart to know what’s going on."
+                </div>
+
+                <p><strong>8. How do you think the game has changed since you started playing?</strong></p>
+                <div class="quote">
+                    "I think there has been a lot more emphasis on protecting the players, especially when it comes to head injuries."
+                </div>
+
+                <p><strong>9. What does ‘teamwork’ really mean to you on and off the field?</strong></p>
+                <div class="quote">
+                    "It means that you have to trust your teammates that they are going to do what they're supposed to and you have to make sure to do your job."
+                </div>
+
+                <p><strong>10. Do you think football is becoming more popular or losing interest among young people? Why?</strong></p>
+                <div class="quote">
+                    "I feel like there is less and fewer kids playing football recently. It might be because kids just don't like playing such a physical sport, and would rather play video games."
+                </div>
+
+                <p><strong>11. What role do families play in supporting players and keeping football traditions alive?</strong></p>
+                <div class="quote">
+                    "They play a big role in supporting players, they are the ones that keep someone playing it. A supporting family will help motivate the player, but if they put too much pressure, it can push the player away from the game."
+                </div>
+
+                <p><strong>12. If you had to describe football culture in one word, what would it be and why?</strong></p>
+                <div class="quote">
+                    "Brotherhood. You become very close to your teammates; it's like the team becomes another family."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Interview Section (FAN + FORMER HIGH SCHOOL PLAYER) -->
+    <section id="fan-interview">
+        <div class="container">
+            <h2 class="section-title">Interview: Fan &amp; Former Player Perspective</h2>
+
+            <img src="pictures/packers_fans_stands.jpg"
+                 alt="Green Bay Packers fans cheering in the stands"
+                 class="interview-image-top">
+
+            <p class="image-caption">
+                Green Bay Packers fans at Lambeau Field in a Spectrum News 1 story published on 7 September 2022 by Rachel Ryan.
+            </p>
+
             <div class="interview">
                 <div class="interview-header">
                     <div class="interview-icon">MJ</div>
-                    <h3>Interview with Former Football Player</h3>
+                    <h3>Interview with a Lifelong Packers Fan &amp; Former Player</h3>
                 </div>
                 
-                <p><strong>1. How he got into football:</strong></p>
+                <p><strong>1. What first got you interested in football?</strong></p>
                 <div class="quote">
-                    "My dad played in college and my grandpa played in high school, so I basically inherited football."
+                    "My dad was a football player in college, and his dad played in high school. I kind of just picked it up ever since I was young, and we were huge Packers fans. Watching the Packers and the Wisconsin Badgers was a big part of what got me into football."
                 </div>
-                
-                <p><strong>2. Starting young:</strong></p>
-                <div class="quote">
-                    "I started playing organized football at around seven or eight. Third grade was when I started tackle — which today is rare because of concussion concerns."
-                </div>
-                
-                <p><strong>3. Importance of football in the U.S.:</strong></p>
-                <div class="quote">
-                    "It started here. People want a team to cheer for. Packers fans are some of the most die-hard fans in the country."
-                </div>
-                
-                <p><strong>4. Community belonging:</strong></p>
-                <div class="quote">
-                    "You can see someone wearing Packers gear on the street and start a conversation immediately."
-                </div>
-                
-                <p><strong>5. Values learned:</strong></p>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-content">
-                            <h4>Leadership</h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h4>Overcoming adversity</h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h4>Staying active</h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h4>Responsibility</h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h4>Teamwork</h4>
-                        </div>
-                    </div>
-                </div>
-                
-                <p><strong>6. Stereotypes:</strong></p>
-                <div class="quote">
-                    "A lot of people think players are dumb, but that's not true. There are NFL guys who scored a 36 on their ACT or went to Harvard."
-                </div>
-                
-                <p><strong>7. Packers uniqueness:</strong></p>
-                <div class="quote">
-                    "They're fan-owned. Fans literally buy shares and attend shareholder meetings."
-                </div>
-                
-                <p><strong>8. Personal impact:</strong></p>
-                <div class="quote">
-                    "I loved football, but I chose track and field. And concussions are a real concern."
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Fan Interview Section -->
-    <section id="fan-interview">
-        <div class="container">
-            <h2 class="section-title">Interview: Fan Perspective</h2>
-            <div class="interview">
-                <div class="interview-header">
-                    <div class="interview-icon">SR</div>
-                    <h3>Interview with a Lifelong Football Fan</h3>
-                </div>
-                
-                <p><strong>1. Growing up in a football family:</strong></p>
+                <p><strong>2. How young were you when you started playing or watching?</strong></p>
                 <div class="quote">
-                    "I was born into it. My dad played, my grandpa played — football was always there."
+                    "When I started playing, I was probably seven or eight years old in organized football. You start with flag football, and then in third grade I started playing tackle, which is kind of unheard of now because of concussions and restrictions."
                 </div>
-                
-                <p><strong>2. Early memories:</strong></p>
+
+                <p><strong>3. Does football run in your family?</strong></p>
                 <div class="quote">
-                    "Watching Packers and Badgers games with my family since I was a kid."
+                    "Yeah. My dad played in college, I played in high school, and my grandpas on both sides also played high school football. That’s the connection, it’s been there for generations."
                 </div>
-                
-                <p><strong>3. Identity:</strong></p>
+
+                <p><strong>4. Why do you think football is so important in the United States?</strong></p>
                 <div class="quote">
-                    "In Wisconsin, football is part of who you are. It defines growing up here."
+                    "It was a sport that started in the U.S. and kind of embodies a lot about the country. The NFL started in 1920, and it’s blown up ever since. People want a team to cheer for. Here in Green Bay and in Wisconsin, everybody loves the Packers, and that ties people together."
                 </div>
-                
-                <p><strong>4. Belonging:</strong></p>
+
+                <p><strong>5. How does being a fan make you feel part of a community?</strong></p>
                 <div class="quote">
-                    "When you're a fan, you instantly connect with others. It doesn't matter if you know them or not."
+                    "Being a fan means you share something in common with people. You can see someone on the street wearing Packers gear and start a conversation right away. When you see family, your uncle, your grandpa, you always end up talking about how the Packers are doing. It becomes a constant point of connection."
                 </div>
-                
-                <p><strong>5. Traditions:</strong></p>
-                <ul>
-                    <li>Game-days together</li>
-                    <li>Jerseys</li>
-                    <li>Asking each other about the team constantly</li>
-                    <li>Talking about the Packers like they're family</li>
-                </ul>
-                
+
+                <p><strong>6. What values do you think football teaches?</strong></p>
                 <div class="quote">
-                    "Here, football isn't a hobby — it's part of life."
+                    "It teaches a lot about leadership and going against adversity. Those traits translate into your job and your family. You learn how to bounce back from tough situations. It also keeps you active and healthy during important years of your life, and that can change your long-term outcomes."
                 </div>
+
+                <p><strong>7. What stereotypes exist about football players or fans, and are they fair?</strong></p>
+                <div class="quote">
+                    "A big stereotype is that football players are 'boneheads' or not smart. That’s not really true. There are guys in the NFL who got a 36 on their ACT or went to schools like Harvard. Ivy League schools have football teams full of really smart players. As for fans, some people stereotype them as thinking football is better than soccer, but it is more about culture and scale here."
+                </div>
+
+                <p><strong>8. How has the game changed over the years?</strong></p>
+                <div class="quote">
+                    "At first the game was very rugby-style. Then the forward pass was introduced, and that revolutionized football. Quarterbacks and wide receivers became important, offenses got more explosive and fast-paced. Now it is also becoming more global, there is talk about the NFL expanding with a team outside the U.S., and more people around the world are paying attention."
+                </div>
+
+                <p><strong>9. What makes the Green Bay Packers unique in football culture?</strong></p>
+                <div class="quote">
+                    "They’re a historic franchise with a lot of championships, but the big thing is that they’re fan-owned. Back in the 1920s they were having funding problems, so Curly Lambeau had people buy shares of the team. People still buy shares today. You don’t get many benefits except being able to say you’re an 'owner' and go to shareholders meetings where they talk about finances, future moves, and the state of the team. The Packers are known for being fan-owned, historic, and for having 13 NFL championships, the most ever."
+                </div>
+
+                <p><strong>10. Has football had a personal impact on your life?</strong></p>
+                <div class="quote">
+                    "Yeah, football is tough. If you’re not good enough, you can’t always go to the next level. I chose to go into track and field instead, because I loved it more. There’s also a lot of risk with concussions, many people don’t want to keep playing because they want to protect their long-term health. I was lucky not to get any serious concussions."
+                </div>
+
+                <p class="image-caption">
+                    For many people in Wisconsin, football is both a family tradition and a lifelong identity.
+                </p>
             </div>
         </div>
     </section>
@@ -754,7 +873,17 @@
         <div class="container">
             <h2 class="section-title">Cultural Analysis</h2>
             <div class="section-content">
-                <p>American football meets all the criteria to be considered a sub-culture:</p>
+
+                <!-- Imagen derecha -->
+                <div class="section-with-image right">
+                    <img src="pictures/tribe_crowd.jpg" alt="Football crowd and Super Bowl flyover over a packed stadium">
+                    <div>
+                        <p>American football meets all the criteria to be considered a sub-culture: it has its own spaces, rituals, values, and symbols. Whether in a small town, a college campus, or a massive NFL stadium, the same patterns of community and identity appear again and again.</p>
+                        <p class="image-caption">
+                            Super Bowl flyover above a packed stadium from Andrew McGregor’s article "The Super Bowl: America’s Holiday" (US Sports History, 1 February 2016). Image courtesy of Wiki Commons.
+                        </p>
+                    </div>
+                </div>
                 
                 <div class="grid">
                     <div class="card">
@@ -783,7 +912,7 @@
                     </div>
                 </div>
                 
-                <h3>Kinship & Tribe</h3>
+                <h3>Kinship &amp; Tribe</h3>
                 <p>Football matches the definition of a "tribe":</p>
                 <ul>
                     <li>Unity</li>
@@ -794,7 +923,7 @@
                 </ul>
                 
                 <h3>Outsider / Insider</h3>
-                <p>Once you join (even as a foreigner), you're immediately welcomed.</p>
+                <p>Once you join, even as a foreigner, you are immediately welcomed.</p>
             </div>
         </div>
     </section>
@@ -804,7 +933,17 @@
         <div class="container">
             <h2 class="section-title">Future of Football</h2>
             <div class="section-content">
-                <p>Where is football going?</p>
+
+                <!-- Imagen izquierda -->
+                <div class="section-with-image">
+                    <img src="pictures/future_helmet.jpg" alt="Modern football helmet representing the future of the sport">
+                    <div>
+                        <p>Where is football going? The sport faces both expansion and risk. On one side, the NFL continues exploring games and fan bases outside the U.S. On the other, concerns about concussions and long-term injuries are changing how people think about playing the game.</p>
+                        <p class="image-caption">
+                            Modern football helmet design featured in an NBC Sports article on evolving player safety, published 1 August 2024.
+                        </p>
+                    </div>
+                </div>
                 
                 <div class="grid">
                     <div class="card">
